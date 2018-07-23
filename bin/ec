@@ -38,4 +38,4 @@ if $(emacs-server-running); then
         done
     fi
 fi
-exec $EMACSCLIENT -c -a ~/.local/bin/emacsc "$@"
+exec $EMACSCLIENT -c -a emacsc "$@"
