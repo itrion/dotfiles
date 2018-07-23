@@ -5,6 +5,6 @@ export CONFIG_REPO_PATH=~/t./code/merrill/javelin-configurations
 export SPRING_PROFILES_ACTIVE=urls,events,dev,local
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/itrion/.sdkman"
-sdkman_init_file="${HOME}/.sdkman/bin/sdkman-init.sh"
-[[ -s $sdkman_init_file ]] && source $sdkmain_init_file
+export SDKMAN_DIR="${HOME}/.sdkman"
+sdkman_init_file="${SDKMAN_DIR}/bin/sdkman-init.sh"
+[[ -s $sdkman_init_file ]] && source $sdkman_init_file
