@@ -1,0 +1,56 @@
+#!/bin/sh
+
+alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+alias emacs="ec"
+
+alias chromem="ps -eo rss,comm | grep 'Google Chrome' | cut -d ' ' -f1 | sed '/^$/d' | paste -sd + - | bc"
+alias atommem="ps -eo rss,comm | awk '/Atom/ {print $1}' | paste -sd + - | bc"
+alias startvm="VBoxManage startvm --type headless"
+
+alias brews='brew list -1'
+alias bubo='brew update && brew outdated'
+alias bubc='brew upgrade && brew cleanup'
+alias bubu='bubo && bubc'
+
+alias doc='docker-compose'
+alias docup='doc up'
+alias docupd='doc up -d'
+alias docr='doc run --rm'
+alias doclog='doc logs'
+
+alias h='heroku'
+alias hc='h config --app'
+alias hr='h run --app'
+alias hcg='h config:get --app'
+alias hcs='h config:set --app'
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Flush the DNS on Mac
+alias dnsflush='dscacheutil -flushcache'
+
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias iplocal="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Show active network interfaces
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+
+# Show network connections
+# Often useful to prefix with SUDO to see more system level network usage
+alias network.connections='lsof -l -i +L -R -V'
+alias network.established='lsof -l -i +L -R -V | grep ESTABLISHED'
+alias network.externalip='curl -s http://checkip.dyndns.org/ | sed "s/[a-zA-Z<>/ :]//g"'
+alias network.internalip="ifconfig en0 | egrep -o '([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)'"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
+# Copy and paste and prune the usless newline
+alias pbcopynn='tr -d "\n" | pbcopy'
+
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec $SHELL -l"
