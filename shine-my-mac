@@ -52,7 +52,7 @@ brew tap caskroom/fonts
 ok
 
 # install homebrews
-require_brew emacs --with-cocoa
+require_brew awscli
 require_brew fontconfig
 require_brew git
 require_brew heroku
@@ -64,8 +64,10 @@ require_brew zsh
 ok
 
 # Install casks
+require_cask bettertouchtool
 require_cask docker
 require_cask dropbox
+require_cask emacs
 require_cask franz
 require_cask gimp
 require_cask haskell-platform
