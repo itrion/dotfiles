@@ -1,0 +1,41 @@
+#!/bin/bash
+set -e
+EMACSCLIENT=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+
+emacs-server-running() {
+    [ "$($EMACSCLIENT -e t)" = 't' ]
+}
+
+exists-env-file() {
+    [ -f .env ]
+}
+
+set-variable-in-emacs(){
+    name=$1
+    value=$2
+    if [ -z $value ]; then
+        continue
+    fi
+    emacsclient -e "(setenv \"${name}\" \"${value}\")" >/dev/null
+}
+
+name(){
+    echo ${1%%=*}
+}
+
+value(){
+    echo ${1#*=}
+}
+
+if $(emacs-server-running); then
+    if $(exists-env-file); then
+        while read variable; do
+            set-variable-in-emacs $(name $variable) $(value $variable)
+        done < .env
+    else
+        for variable in `env`; do
+            set-variable-in-emacs $(name $variable) $(value $variable)
+        done
+    fi
+fi
+exec $EMACSCLIENT -c -a ~/.local/bin/emacsc "$@"
