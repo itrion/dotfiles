@@ -1,6 +1,5 @@
 # My Scripts
-export PATH=$PATH:.
-export PATH=$~/.dotfiles/bin
+export PATH=~/.dotfiles/bin:$PATH
 
 # Brew
 export PATH=/usr/local/sbin:$PATH
@@ -9,9 +8,6 @@ export PATH=/usr/local/bin:$PATH
 # Add paths to work with haskell
 export PATH="${HOME}/.local/bin":"${HOME}/Library/Haskell/bin":$PATH
 
-# Add postgresql bin path because it was installed using brew and it is keg-only
-export PATH="/usr/local/opt/postgresql@9.5/bin":$PATH
-
 # Add Node
 export PATH="/usr/local/lib/node_modules":$PATH
 
@@ -19,4 +15,4 @@ export PATH="/usr/local/lib/node_modules":$PATH
 export PATH="${HOME}/Library/Python/2.7/bin":$PATH
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH=$PATH:$HOME/.rvm/bin
