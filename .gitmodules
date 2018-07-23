@@ -1,0 +1,9 @@
+[submodule "spacemacs"]
+	path = spacemacs
+	url = git@github.com:syl20bnr/spacemacs.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = git@github.com:robbyrussell/oh-my-zsh.git
+[submodule "osx-terminal-themes"]
+	path = osx-terminal-themes
+	url = git@github.com:lysyi3m/osx-terminal-themes.git
