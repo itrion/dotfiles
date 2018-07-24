@@ -3,6 +3,7 @@ export EDITOR="ec"
 # Merrill
 export CONFIG_REPO_PATH=~/t./code/merrill/javelin-configurations
 export SPRING_PROFILES_ACTIVE=urls,events,dev,local
+export ACTIVE_PCF_ENVIRONMENT=devg
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="${HOME}/.sdkman"
