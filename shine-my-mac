@@ -57,7 +57,6 @@ require_brew fontconfig
 require_brew git
 require_brew heroku
 require_brew imagemagick
-require_brew redis-cli
 require_brew terminal-notifier
 require_brew tree
 require_brew zsh
@@ -70,6 +69,8 @@ require_cask dropbox
 require_cask emacs
 require_cask franz
 require_cask gimp
+require_cask google-backup-and-sync
+require_cask grammarly
 require_cask haskell-platform
 require_cask hipchat
 require_cask intellij-idea
