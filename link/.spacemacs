@@ -62,7 +62,7 @@ values."
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     ;; spell-checking
+     spell-checking
      (ruby :variables
            ruby-version-manager 'rvm
            ruby-insert-encoding-magic-comment nil)
