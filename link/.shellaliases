@@ -1,4 +1,5 @@
 #!/bin/sh
+alias mncl="docker run -it --rm bitnami/mongodb mongo --host 172.17.0.2"
 
 alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 alias emacs="ec"
