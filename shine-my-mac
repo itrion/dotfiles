@@ -139,14 +139,19 @@ require_nvm stable
 # always pin versions (no surprises, consistent dev/build machines)
 npm config set save-exact true
 npm install diff-so-fancy
-
-running "cleanup homebrew"
-brew cleanup > /dev/null 2>&1
-ok
+npm install tern
 
 # Install rvm
 curl -sSL https://get.rvm.io | bash -s stable
 source $HOME/.rvm/scripts/rvm
+
+RUBY_VERSION=2.5
+rvm install "ruby-${RUBY_VERSION}"
+rvm use ${RUBU_VERSION} --default
+
+running "cleanup homebrew"
+brew cleanup > /dev/null 2>&1
+ok
 
 # Java (SDK man)
 curl -s "https://get.sdkman.io" | bash
