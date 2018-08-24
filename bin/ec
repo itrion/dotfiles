@@ -28,14 +28,13 @@ value(){
 }
 
 if $(emacs-server-running); then
+    for variable in `env`; do
+        set-variable-in-emacs $(name $variable) $(value $variable)
+    done
     if $(exists-env-file); then
         while read variable; do
             set-variable-in-emacs $(name $variable) $(value $variable)
         done < .env
-    else
-        for variable in `env`; do
-            set-variable-in-emacs $(name $variable) $(value $variable)
-        done
     fi
 fi
 exec $EMACSCLIENT -c -a emacsc "$@"
