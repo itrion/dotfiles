@@ -55,7 +55,7 @@ ok
 require_brew awscli
 require_brew fontconfig
 require_brew git
-require_brew heroku
+require_brew heroku/brew/heroku
 require_brew imagemagick
 require_brew terminal-notifier
 require_brew tree
