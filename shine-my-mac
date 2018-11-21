@@ -71,7 +71,6 @@ require_cask franz
 require_cask gimp
 require_cask google-backup-and-sync
 require_cask grammarly
-require_cask hipchat
 require_cask intellij-idea
 require_cask ngrok
 require_cask postman
