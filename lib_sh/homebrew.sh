@@ -34,3 +34,16 @@ function homebrew.install-brew(){
         homebrew.upgrade
     fi
 }
+
+function homebrew.install-cask(){
+    running "checking brew-cask install"
+    output=$(brew tap | grep cask)
+    if [[ $? != 0 ]]; then
+        action "installing brew-cask"
+        require_brew caskroom/cask/brew-cask
+    fi
+    brew tap caskroom/versions > /dev/null 2>&1
+    brew tap caskroom/cask
+    brew tap caskroom/fonts
+    ok
+}
