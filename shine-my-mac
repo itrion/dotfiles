@@ -11,6 +11,7 @@ homebrew.install-brew
 homebrew.install-cask
 
 # install homebrews
+require_brew ag
 require_brew awscli
 require_brew fontconfig
 require_brew git
