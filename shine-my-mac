@@ -34,6 +34,7 @@ require_cask grammarly
 require_cask intellij-idea
 require_cask ngrok
 require_cask postman
+require_cask robo-3t
 require_cask slack
 require_cask skype
 require_cask skype-for-business
