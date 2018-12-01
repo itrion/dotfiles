@@ -15,6 +15,7 @@ require_brew ag
 require_brew awscli
 require_brew fontconfig
 require_brew git
+require_brew global
 require_brew heroku/brew/heroku
 require_brew imagemagick
 require_brew terminal-notifier
