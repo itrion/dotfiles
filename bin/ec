@@ -16,7 +16,7 @@ set-variable-in-emacs(){
     if [ -z $value ]; then
         continue
     fi
-    emacsclient -e "(setenv \"${name}\" \"${value}\")" >/dev/null
+    ${EMACSCLIENT} -e "(setenv \"${name}\" \"${value}\")" >/dev/null
 }
 
 name(){
