@@ -31,7 +31,6 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     typescript
      ;;  haskell
      ;; python
      ;; ----------------------------------------------------------------
@@ -40,28 +39,23 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;; sql
-     javascript
-     markdown
-     itrion
-     csv
-     html
-     yaml
+     ;; itrion
      colors
-     (speed-reading :variables
-                    spray-margin-top 5
-                    spray-margin-left 15)
+     csv
      helm
+     html
      auto-completion
      better-defaults
-     ;; emacs-lisp
+     emacs-lisp
      git
      github
      gtags
-     ;; markdown
-     ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     javascript
+     markdown
+     org
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      spell-checking
      (ruby :variables
            ruby-version-manager 'rvm
@@ -69,11 +63,16 @@ values."
      ruby-on-rails
      restclient
      semantic
+     (speed-reading :variables
+                    spray-margin-top 5
+                    spray-margin-left 15)
      syntax-checking
      (version-control :variables
                       version-control-diff-tool 'diff-hl
                       version-control-global-margin t)
      themes-megapack
+     typescript
+     yaml
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
