@@ -1,21 +1,23 @@
+#!/bin/sh
+
 # My Scripts
-export PATH=~/.dotfiles/bin:$PATH
+export PATH=$PATH:"${HOME}/.dotfiles/bin"
 
 # Brew
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/bin:$PATH
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:/usr/local/bin
 
 # Keg only binaries
-export PATH=/usr/local/opt/openssl/bin:$PATH
+export PATH=$PATH:/usr/local/opt/openssl/bin
 
 # Add paths to work with haskell
-export PATH="${HOME}/.local/bin":"${HOME}/Library/Haskell/bin":$PATH
+export PATH=$PATH:"${HOME}/.local/bin":"${HOME}/Library/Haskell/bin"
 
 # Add Node
-export PATH="/usr/local/lib/node_modules":$PATH
+export PATH=$PATH:"/usr/local/lib/node_modules"
 
 # Add python bin dir
-export PATH="${HOME}/Library/Python/2.7/bin":$PATH
+export PATH=$PATH:"${HOME}/Library/Python/2.7/bin"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH=$PATH:$HOME/.rvm/bin
