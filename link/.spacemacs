@@ -42,17 +42,19 @@ values."
      ;; itrion
      colors
      csv
+     (haskell :variables
+              haskell-process-type 'stack-ghci)
      helm
      html
-     auto-completion
+     (auto-completion
+      (haskell :variables hakell-completion-backend 'intero))
      better-defaults
      emacs-lisp
      git
-     github
      gtags
      javascript
-     markdown
      org
+     markdown
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
