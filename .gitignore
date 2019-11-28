@@ -1,4 +1,5 @@
 link/.emacs.d/*
 !link/.emacs.d/init.el
 
-node_modules
+/node_modules
+/private
