@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 set -e
 EMACSCLIENT=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
 exec $EMACSCLIENT -t -a emacst "$@"
