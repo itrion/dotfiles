@@ -33,6 +33,7 @@ require_cask gimp
 require_cask google-backup-and-sync
 require_cask grammarly
 require_cask intellij-idea
+require_cask ispell
 require_cask ngrok
 require_cask loopback
 require_cask postman
