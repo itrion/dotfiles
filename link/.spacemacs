@@ -49,12 +49,15 @@ values."
      (auto-completion
       (haskell :variables hakell-completion-backend 'intero))
      better-defaults
+     docker
      emacs-lisp
      git
      gtags
+     itrion
      javascript
-     org
      markdown
+     org
+     python
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
