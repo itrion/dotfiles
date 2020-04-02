@@ -2,6 +2,7 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
+
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -47,7 +48,8 @@ values."
      helm
      html
      (auto-completion
-      (haskell :variables hakell-completion-backend 'intero))
+      (haskell :variables
+               hakell-completion-backend 'intero))
      better-defaults
      docker
      emacs-lisp
@@ -57,7 +59,8 @@ values."
      javascript
      markdown
      org
-     python
+     (python :variables
+             python-test-runner 'pytest)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -65,7 +68,7 @@ values."
      (ruby :variables
            ruby-version-manager 'rvm
            ruby-insert-encoding-magic-comment nil)
-     ruby-on-rails
+     ;; ruby-on-rails
      restclient
      semantic
      (speed-reading :variables
@@ -83,7 +86,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(editorconfig)
+   dotspacemacs-additional-packages '(editorconfig protobuf-mode)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -147,7 +150,8 @@ values."
    ;; List sizes may be nil, in which case
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
    dotspacemacs-startup-lists '((recents . 5)
-                                (projects . 7))
+                                (projects . 7)
+                                (todos . 5))
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
@@ -156,7 +160,6 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(dracula
-                         spacemacs-dark
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -208,7 +211,7 @@ values."
    dotspacemacs-display-default-layout nil
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-resume-layouts t
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
@@ -238,7 +241,7 @@ values."
    dotspacemacs-enable-paste-transient-state nil
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
-   dotspacemacs-which-key-delay 0.4
+   dotspacemacs-which-key-delay 0.3
    ;; Which-key frame position. Possible values are `right', `bottom' and
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
    ;; right; if there is insufficient space it displays it at the bottom.
@@ -295,7 +298,7 @@ values."
    dotspacemacs-folding-method 'origami
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode t
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
    ;; over any automatically added closing parenthesis, bracket, quote, etc…
    ;; This can be temporary disabled by pressing `C-q' before `)'. (default nil)
@@ -340,13 +343,17 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (global-set-key (kbd "s-.") 'evil-toggle-fold)
+  (global-set-key (kbd "C-x C-b") 'ibuffer)
+  (spacemacs/set-leader-keys "zt" 'evil-toggle-fold)
   (defun customize-web-mode ()
     "custom configuation for web mode"
-    (setq web-mode-markup-indent-offset 2)
-    (setq css-indent-offset 2))
+    (setq web-mode-markup-indent-offset 2
+          css-indent-offset 2))
 
-  (add-hook 'web-mode-hook 'customize-web-mode)
-  (setq-default frame-title-format "%f")
+  (setq-default yaml-indent-offset 4
+                frame-title-format "%f"
+                magit-log-margin '(t "%Y-%m-%d %a %H:%M" magit-log-margin-width t 18))
 
   ;; make Emacs client to get the focus when a frame is created
   (when (featurep 'ns)
