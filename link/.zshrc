@@ -6,8 +6,8 @@ export ZSH=${HOME}/.dotfiles/oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
-# cool themes: jispwoso, fino
-ZSH_THEME="steeef"
+# cool themes: jispwoso, fino, steeef
+ZSH_THEME="fino-time"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
