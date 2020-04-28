@@ -24,6 +24,7 @@ require_brew zsh
 ok
 
 # Install casks
+require_cask basecamp
 require_cask bettertouchtool
 require_cask docker
 require_cask dropbox
