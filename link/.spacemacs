@@ -213,7 +213,7 @@ values."
    dotspacemacs-display-default-layout nil
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts t
+   dotspacemacs-auto-resume-layouts nil
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
@@ -335,8 +335,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq-default git-magit-status-fullscreen t)
-  )
+  (setq-default git-magit-status-fullscreen t))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -345,17 +344,36 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; Configure web mode buffers
+  (defun customize-web-mode ()
+    "Customize the buffers related to web mode"
+    (setq yaml-indent-offset 4
+          css-indent-offset 2
+          web-mode-markup-indent-offset 2))
+  (add-hook 'web-mode-hook 'customize-web-mode)
+
+  ;; Configure markdown mode
+  (defun customize-markdown-mode ()
+    "Customize markdown mode"
+    ;; (setq fill-column 90)
+    ;; (auto-fill-mode)
+    ;; (spacemacs/toggle-fill-column-indicator-on)
+    (spacemacs/toggle-auto-completion-off)
+    (flyspell-mode-on)
+    (flycheck-mode))
+  (add-hook 'markdown-mode-hook 'customize-markdown-mode)
+
+  ;; Configure custom keybindings
   (global-set-key (kbd "s-.") 'evil-toggle-fold)
   (global-set-key (kbd "C-x C-b") 'ibuffer)
+  (global-set-key (kbd "M-f") 'itrion/forward-word)
   (spacemacs/set-leader-keys "zt" 'evil-toggle-fold)
-  (defun customize-web-mode ()
-    "custom configuation for web mode"
-    (setq web-mode-markup-indent-offset 2
-          css-indent-offset 2))
 
-  (setq-default yaml-indent-offset 4
-                frame-title-format "%f"
+
+  (setq-default frame-title-format "%f"
                 magit-log-margin '(t "%Y-%m-%d %a %H:%M" magit-log-margin-width t 18))
+
+  (setf epa-pinentry-mode 'loopback)
 
   ;; make Emacs client to get the focus when a frame is created
   (when (featurep 'ns)
