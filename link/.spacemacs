@@ -40,12 +40,12 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;; sql
-     ;; itrion
+     itrion
      colors
      csv
      (haskell :variables
               haskell-process-type 'stack-ghci)
-     helm
+     ;; helm
      html
      (auto-completion
       (haskell :variables
@@ -55,16 +55,18 @@ values."
      emacs-lisp
      git
      gtags
-     itrion
+     ;; itrion
      javascript
-     markdown
+     (markdown :variables
+               markdown-live-preview-engine 'vmd)
      org
      (python :variables
              python-test-runner 'pytest)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     spell-checking
+     (spell-checking :variables
+                     ispell-program-name "aspell")
      (ruby :variables
            ruby-version-manager 'rvm
            ruby-insert-encoding-magic-comment nil)
