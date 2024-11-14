@@ -1,6 +1,6 @@
 function homebrew.download-and-install(){
     action "installing homebrew"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     if [[ $? != 0 ]]; then
         error "unable to install homebrew, script $0 abort!"
         exit 2

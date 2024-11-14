@@ -8,7 +8,6 @@ source ./lib_sh/homebrew.sh
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 homebrew.install-brew
-homebrew.install-cask
 
 # install homebrews
 require_brew ag
@@ -24,37 +23,23 @@ require_brew zsh
 ok
 
 # Install casks
-require_cask basecamp
-require_cask bettertouchtool
-require_cask docker
-require_cask dropbox
-require_cask emacs
-require_cask franz
-require_cask gimp
-require_cask google-backup-and-sync
-require_cask grammarly
-require_cask intellij-idea
-require_cask ispell
-require_cask ngrok
-require_cask loopback
-require_cask postman
-require_cask robo-3t
-require_cask slack
-require_cask skype
-require_cask skype-for-business
-require_cask spotify
-require_cask the-unarchiver
-require_cask vagrant
-require_cask virtualbox
+require_brew bettertouchtool
+require_brew docker
+require_brew ispell
+require_brew loopback
+require_brew postman
+require_brew robo-3t
+require_brew spotify
+require_brew the-unarchiver
 ok
 
 # Install fonts
-require_cask font-fira-code
-require_cask font-fontawesome
-require_cask font-awesome-terminal-fonts
-require_cask font-hack
-require_cask font-roboto-mono
-require_cask font-source-code-pro
+require_brew font-fira-code
+require_brew font-fontawesome
+require_brew font-awesome-terminal-fonts
+require_brew font-hack
+require_brew font-roboto-mono
+require_brew font-source-code-pro
 ok
 
 
@@ -104,16 +89,10 @@ npm config set save-exact true
 npm install diff-so-fancy
 npm install tern
 
-# Install rvm
-curl -sSL https://get.rvm.io | bash -s stable
-source $HOME/.rvm/scripts/rvm
-
-RUBY_VERSION=2.5
-rvm install "ruby-${RUBY_VERSION}"
-rvm use ${RUBU_VERSION} --default
-
-running "cleanup homebrew"
-brew cleanup > /dev/null 2>&1
+# Install rvm and lts ruby
+require_brew rbenv
+rbenv init
+rbenv install -l
 ok
 
 # Java (SDK man)
