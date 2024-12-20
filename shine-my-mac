@@ -15,6 +15,7 @@ require_brew ag
 require_brew fontconfig
 require_brew git
 require_brew global
+require_brew gpg-suite
 require_brew imagemagick
 require_brew terminal-notifier
 require_brew tree
@@ -32,6 +33,7 @@ require_brew ripgrep
 require_brew bettertouchtool
 require_brew docker
 require_brew ispell
+require_brew keymapp
 require_brew loopback
 require_brew notion
 require_brew logi-options+
