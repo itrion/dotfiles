@@ -10,26 +10,35 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 homebrew.install-brew
 
 # install homebrews
+require_brew 1password-cli
 require_brew ag
-require_brew awscli
 require_brew fontconfig
 require_brew git
 require_brew global
-require_brew heroku/brew/heroku
 require_brew imagemagick
 require_brew terminal-notifier
 require_brew tree
 require_brew zsh
 ok
 
+# install emacs dependencies
+require_brew autoconf
+require_brew texinfo
+require_brew libgccjit
+require_brew gnutls
+require_brew ripgrep
+
 # Install casks
 require_brew bettertouchtool
 require_brew docker
 require_brew ispell
 require_brew loopback
+require_brew notion
+require_brew logi-options+
 require_brew postman
 require_brew robo-3t
 require_brew spotify
+require_brew telegram
 require_brew the-unarchiver
 ok
 
